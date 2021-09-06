@@ -1,4 +1,6 @@
 //###########################################################################
+// *** Assignment is Complete ***
+//
 // Lab 2.2, Verison 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
@@ -12,15 +14,16 @@
 #include <iostream>
 using namespace std;
 
-int heightInInches = 75;
-int inchesInAFoot = 12;
-
 int main() {
+
+    int heightInInches = 75;
+    int inchesInAFoot = 12;
 
     int feet = heightInInches / inchesInAFoot;
     int remainingInches = heightInInches % inchesInAFoot;
 
     cout << "A " << heightInInches << " inch tall basketball player" << " is " << feet <<
     " feet " << "and " <<  remainingInches << " inches tall."<< endl;
+
     return 0;
 }
