@@ -1,4 +1,6 @@
 //###########################################################################
+// *** Assignment is Complete ***
+//
 // Lab 2.1, Version 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
@@ -12,12 +14,15 @@
 #include <iostream>
 using namespace std;
 
-int pricePerDrive = 8;
-auto desireProfit = 0.35;
-
 int main() {
+
+    int pricePerDrive = 8;
+    auto desireProfit = 0.35;
+
     // (8 * 0.35) + 8 = 10.8
     float priceForDesiredProfit = (pricePerDrive + (pricePerDrive * desireProfit));
+
     cout << "To have a 35% profit, the flash drive should sell for $" << priceForDesiredProfit << endl;
+
     return 0;
 }
