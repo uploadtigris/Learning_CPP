@@ -9,9 +9,9 @@ int main() {
 
     float taxRate, actualValue;
 
-    cout << "Enter the actual property value:" << setw(2) << "$" << fixed << setprecision(2);
+    cout << "Enter the actual property value:"  << setw(2) << "$";
     cin >> actualValue;
-    cout << "Enter the amount of tax per $100 of assessed value:" << setw(2) << "$" << fixed << setprecision(2);
+    cout << "Enter the amount of tax per $100 of assessed value:" << setw(2) << "$";
     cin >> taxRate;
 
     double assessedValue = ACTUAL_TO_ASSESSED_RATE * actualValue;
@@ -22,3 +22,4 @@ int main() {
     cout << "Property Tax:" << "     " << "$" << setw(12) << propertyTax << endl;
 
 }
+
