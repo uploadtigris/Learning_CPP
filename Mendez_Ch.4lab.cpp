@@ -1,3 +1,19 @@
+//###########################################################################
+// *** Assignment is Complete ***
+//
+// Lab 4.1, Version 1
+// Name (Developer): Tigris Mendez
+// Class: COSC~1337
+// Proffesor: Jorgenson
+// Date: 9/17/2021
+//
+// Purpose of Program:
+//      Ask user for type of material and distance (in feet) covered,
+//      returns the length of time it will take for sound waves to
+//      travel through the material.
+//###########################################################################
+
+
 #include <iostream>
 #include <string>
 
@@ -51,3 +67,4 @@ int main() {
 
     return 0;
 }
+
