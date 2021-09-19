@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -27,8 +28,8 @@ int main() {
     double feet, result;
 
     FEET_PER_SECOND_AIR = 1100;         /* option 1 */
-    FEET_PER_SECOND_WATER = 4,900;      /* option 2 */
-    FEET_PER_SECOND_STEEL = 16,400;     /* option 3 */
+    FEET_PER_SECOND_WATER = 4900;      /* option 2 */
+    FEET_PER_SECOND_STEEL = 16400;     /* option 3 */
 
     cout << "\nThis Program will tell you how long it takes a sound wave\n"
             "to travel a specific distance through a particular medium.\n\n";
@@ -46,25 +47,25 @@ int main() {
     switch(inputNumber)
     {
         case 1:
-            result = FEET_PER_SECOND_AIR * feet ;
+            result = (feet / FEET_PER_SECOND_AIR);
             materialTraveledThrough = "Air";
             break;
         case 2:
-            result = FEET_PER_SECOND_WATER * feet ;
+            result = (feet / FEET_PER_SECOND_WATER);
             materialTraveledThrough = "Water";
             break;
         case 3:
-            result = FEET_PER_SECOND_STEEL *feet ;
+            result = (feet / FEET_PER_SECOND_STEEL);
             materialTraveledThrough = "Steel";
             break;
         default:
-            cout << "\n\n *** Please enter a valid result... *** \n";
+            cout << "\n\n *** Please enter a valid substance... *** \n";
             return -1;
     };
 
 
-    cout << "The sound wave will travel " << feet << " feet through the " << materialTraveledThrough << " in " << result << " seconds.\n\n";
+    cout << "The sound wave will travel " << feet << " feet through the " << materialTraveledThrough << " in "
+            << fixed << setprecision(4) << result << " seconds.\n\n";
 
     return 0;
 }
-
