@@ -22,14 +22,14 @@ using namespace std;
 
 int main() {
 
-    int FEET_PER_SECOND_AIR,FEET_PER_SECOND_WATER, FEET_PER_SECOND_STEEL; // Constants
-    int inputNumber;
-    string materialTraveledThrough;
-    double feet, result;
+    const int FEET_PER_SECOND_AIR = 1100,         /* option 1 */
+              FEET_PER_SECOND_WATER = 4900,      /* option 2 */
+              FEET_PER_SECOND_STEEL = 16400;     /* option 3 */
 
-    FEET_PER_SECOND_AIR = 1100;         /* option 1 */
-    FEET_PER_SECOND_WATER = 4900;      /* option 2 */
-    FEET_PER_SECOND_STEEL = 16400;     /* option 3 */
+    int inputNumber;
+    double feet, result;
+    string materialTraveledThrough;
+
 
     cout << "\nThis Program will tell you how long it takes a sound wave\n"
             "to travel a specific distance through a particular medium.\n\n";
@@ -65,7 +65,7 @@ int main() {
 
 
     cout << "The sound wave will travel " << feet << " feet through the " << materialTraveledThrough << " in "
-            << fixed << setprecision(4) << result << " seconds.\n\n";
+         << fixed << setprecision(4) << result << " seconds.\n\n";
 
     return 0;
 }
