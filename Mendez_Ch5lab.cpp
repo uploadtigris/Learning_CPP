@@ -68,11 +68,8 @@ int main() {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-
-
-//Main Computation and Counting of Asterisks
+    
+//Main Computation and Counting of Asterisks;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Store One Computation;
