@@ -1,24 +1,22 @@
 //###########################################################################
-// *** Assignment is not yet Complete ***
+// *** Assignment is Complete ***
 //
-// Lab 5.1, Version 1
+// Lab 5, Version 2
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
 // Proffesor: Jorgenson
-// Date: 9/22/2021
+// Date: 9/24/2021
 //
 // Purpose of Program:
 //      Ask user for the sales totals for three different stores.
-//      Print amount of hundreds of dollars in sales rounded to the 100s
-//      of each store.
+//      Print amount of sales in hundreds of dollars.
 //###########################################################################
 
 //Stuff to work on:
-//include the round function
-//validate that each sales figure in >= 0 using validation loop.
+//validate that each sales figure is >= 0 using validation loop.
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <string>
 
 using namespace std;
@@ -34,62 +32,82 @@ int main() {
     const int ONE_HUNDRED_DOLLARS = 100;
 
 
-
+//Inputs and Validations
+    //storeOneSales;
     cout << "Enter today's sales for store 1: \n";
-        cin >> storeOneSales;
+    cin >> storeOneSales;
 
-        if(!cin)
-        {
-            cout << "please input an integer";
-        }
+    if(!cin)
+    {
+        cout << "**** Warning! ****";
+        cout << "\n**** please input an integer ****\n\n";
+        abort();
+    }
 
-
+    //storeTwoSales;
     cout << "Enter today's sales for Store 2: \n";
     cin >> storeTwoSales;
 
+    if(!cin)
+    {
+        cout << "**** Warning! ****";
+        cout << "\n**** please input an integer ****\n\n";
+        abort();
+    }
+
+    //    //storeThreeSales;
     cout << "Enter today's sales for store 3: \n";
     cin >> storeThreeSales;
 
-    // if a negative number -> cout << "Please enter a positive number for Store 1: ";
+    if(!cin)
+    {
+        cout << "**** Warning! ****";
+        cout << "\n**** please input an integer ****\n\n";
+        abort();
+    }
+
+    // if a negative number -> cout << "Please enter a positive number for Store #: ";
     if (storeOneSales > 0)
     {
         int asterisk;
-        asterisk = storeOneSales / ONE_HUNDRED_DOLLARS;
+        asterisk = round(storeOneSales) / ONE_HUNDRED_DOLLARS;
 
         for (asterisk; asterisk > 0; asterisk--)
         {
             storeOneAsterisk += '*';
         }
     } else {
-        cout << "Please enter a positive number for Store 1: ";
+        cout << "\n*** ERR: Please enter a positive number for Store 1";
     };
 
     if (storeTwoSales > 0)
     {
         int asterisk;
-        asterisk = storeTwoSales / ONE_HUNDRED_DOLLARS;
+        asterisk = round(storeTwoSales) / ONE_HUNDRED_DOLLARS;
 
         for (asterisk; asterisk > 0; asterisk--)
         {
             storeTwoAsterisk += '*';
         }
     } else {
-        cout << "Please enter a positive number for Store 2: ";
+        cout << "\n*** ERR: Please enter a positive number for Store 2: ";
     };
 
     if (storeThreeSales > 0)
     {
         int asterisk;
-        asterisk = storeThreeSales / ONE_HUNDRED_DOLLARS;
+        asterisk = round(storeThreeSales) / ONE_HUNDRED_DOLLARS;
 
         for (asterisk; asterisk > 0; asterisk--)
         {
             storeThreeAsterisk += '*';
         }
     } else {
-        cout << "Please enter a positive number for Store 3: ";
+        cout << "\n*** ERR: Please enter a positive number for Store 3: ";
     };
-    cout << "Store 1: " << storeOneAsterisk << '\n';
+
+    //Results
+    cout << "\n\nStore 1: " << storeOneAsterisk << '\n';
     cout << "Store 2: " << storeTwoAsterisk << '\n';
     cout << "Store 3: " << storeThreeAsterisk << '\n';
 
