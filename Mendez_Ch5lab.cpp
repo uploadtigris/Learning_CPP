@@ -12,9 +12,6 @@
 //      Print amount of sales in hundreds of dollars.
 //###########################################################################
 
-//Stuff to work on:
-//validate that each sales figure is >= 0 using validation loop.
-
 #include <iostream>
 #include <cmath>
 #include <string>
