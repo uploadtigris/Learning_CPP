@@ -20,17 +20,16 @@ using namespace std;
 
 int main() {
 
-    float storeOneSales,
-            storeTwoSales,
-            storeThreeSales;
-
+    float storeOneSales, storeTwoSales, storeThreeSales;
     string storeOneAsterisk, storeTwoAsterisk, storeThreeAsterisk;
-
     const int ONE_HUNDRED_DOLLARS = 100;
 
 
-//Inputs and Validations
-    //storeOneSales;
+//Inputs and Validations;
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//storeOneSales;
+
     cout << "Enter today's sales for store 1: \n";
     cin >> storeOneSales;
 
@@ -41,7 +40,9 @@ int main() {
         abort();
     }
 
-    //storeTwoSales;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//storeTwoSales;
+
     cout << "Enter today's sales for Store 2: \n";
     cin >> storeTwoSales;
 
@@ -52,7 +53,9 @@ int main() {
         abort();
     }
 
-    //    //storeThreeSales;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//storeThreeSales;
+
     cout << "Enter today's sales for store 3: \n";
     cin >> storeThreeSales;
 
@@ -62,6 +65,17 @@ int main() {
         cout << "\n**** please input an integer ****\n\n";
         abort();
     }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+//Main Computation and Counting of Asterisks
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Store One Computation;
 
     // if a negative number -> cout << "Please enter a positive number for Store #: ";
     if (storeOneSales > 0)
@@ -77,6 +91,10 @@ int main() {
         cout << "\n*** ERR: Please enter a positive number for Store 1";
     };
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Store Two Computation;
+
+
     if (storeTwoSales > 0)
     {
         int asterisk;
@@ -90,6 +108,10 @@ int main() {
         cout << "\n*** ERR: Please enter a positive number for Store 2: ";
     };
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Store Three Computation;
+
+
     if (storeThreeSales > 0)
     {
         int asterisk;
@@ -102,11 +124,17 @@ int main() {
     } else {
         cout << "\n*** ERR: Please enter a positive number for Store 3: ";
     };
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    //Results
+//*************************************************************************************
+
+
+//Results
     cout << "\n\nStore 1: " << storeOneAsterisk << '\n';
     cout << "Store 2: " << storeTwoAsterisk << '\n';
     cout << "Store 3: " << storeThreeAsterisk << '\n';
+
+
 
     return 0;
 }
