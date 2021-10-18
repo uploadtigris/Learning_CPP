@@ -1,5 +1,5 @@
 //###########################################################################
-// *** Assignment is not Complete ***
+// *** Assignment is Complete ***
 //
 // Lab 7.0, Version 1
 // Name (Developer): Tigris Mendez
@@ -48,18 +48,19 @@ private:
     float taxRate;
     float amountTaxed;
     float billWithOutTax;
+    float tipRate;
     float tip;
+
 
 public:
 
+    void set_tip(int givenTipRate) { tipRate = givenTipRate; }
     void computeTip(float totalBillAmount, float taxRate)
     {
         amountTaxed = totalBillAmount * (taxRate/100);
-        cout << amountTaxed << endl;
         billWithOutTax = (totalBillAmount - amountTaxed);
-        cout << billWithOutTax << endl;
-        tip = billWithOutTax * (desiredTipRate / 100);
-        //cout << tip << endl;
+        tip = billWithOutTax * (tipRate / 100);
+        cout << "The tip should be $" <<setprecision(2) << fixed << tip << endl;
     }
 };
 
@@ -86,9 +87,9 @@ int main()
     float x;
     float taxPercentage;
 
-    cout << "\nThis program will computer a restaurant tip based on\n"
-        "the total bill amount and the % the patron wishes to "
-        "tip the server." << endl;
+    cout << "\nThis program will compute a restaurant tip based on\n"
+        "the total bill amount and the % the patron wishes to\n"
+        "tip the server.\n\n" << endl;
 
     float tax{getTax()};
 
@@ -105,6 +106,7 @@ int main()
     cin >> desiredTipRate;
 
     Tips obj2;
+    obj2.set_tip(desiredTipRate);
     obj2.computeTip(billTotal, desiredTipRate);
 
     cout << "Compute another tip (y/n)?";
