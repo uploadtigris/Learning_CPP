@@ -1,7 +1,14 @@
 //###########################################################################
-// *** Assignment is Complete ***
+// *** Assignment is Semi-Complete ***
 //
-// Lab 7.0, Version 1
+//        issues :
+//            1. a second run of the program will not use the correct values.
+//            2. cannot find a way to have "default for tax with no argument.
+//            3. responds to "repeat?" with a 'y' or 'n'. but, does not prompt
+//               another attempt if not either of those.
+//
+//
+// Lab 7.3, Version 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
 // Proffesor: Jorgenson
@@ -54,7 +61,17 @@ private:
 
 public:
 
-    void set_tip(int givenTipRate) { tipRate = givenTipRate; }
+    void set_tip(int givenTipRate)
+    {
+        if (givenTipRate > 0)
+        {
+            tipRate = givenTipRate;
+        }
+        else if (! isdigit(givenTipRate))
+        {
+            tipRate = 0.085;
+        }
+    };
     void computeTip(float totalBillAmount, float taxRate)
     {
         amountTaxed = totalBillAmount * (taxRate/100);
@@ -68,6 +85,7 @@ float getTax() {
     float tax;
     cout << "Tax % for this location: ";
     cin >> tax;
+    cin.get();
 
     while (tax < 0) {
         if (tax > 0) {
@@ -112,19 +130,19 @@ int main()
     cout << "Compute another tip (y/n)?";
     cin >> doIRunAgain;
 
-    if (doIRunAgain == 'y')
+    while (doIRunAgain == 'n' || doIRunAgain == 'y')
     {
-        cout << "**************** Tip Helper *****************\n";
-        cout << "Enter total bill amount: ";
-        cin >> billTotal;
-        cout << "Enter tip rate: ";
-        cin >> desiredTipRate;
+        if (doIRunAgain == 'y') {
+            cout << "**************** Tip Helper *****************\n";
+            cout << "Enter total bill amount: ";
+            cin >> billTotal;
+            cout << "Enter tip rate: ";
+            cin >> desiredTipRate;
 
-        Tips obj2;
-        obj2.computeTip(billTotal, desiredTipRate);
+            Tips obj2;
+            obj2.computeTip(billTotal, desiredTipRate);
+        } else if (doIRunAgain == 'n') {
+            cout << "Okay! Thank you for using Tip Helper. Have a pleasant day.";
+        }
     }
-    else if (doIRunAgain == 'n')
-    {
-        cout << "Okay! Thank you for using Tip Helper. Have a pleasant day.";
-    }
-}
+
