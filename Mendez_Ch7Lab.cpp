@@ -82,7 +82,7 @@ public:
 };
 
 float getTax() {
-    float tax;
+    unsigned float tax;                                   // unsigned can only handle positive numbers.
     cout << "Tax % for this location: ";
     cin >> tax;
     cin.get();
