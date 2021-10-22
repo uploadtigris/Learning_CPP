@@ -1,17 +1,10 @@
 //###########################################################################
-// *** Assignment is Semi-Complete ***
+// *** Assignment is Complete ***
 //
-//        issues :
-//            1. a second run of the program will not use the correct values.
-//            2. cannot find a way to have "default for tax with no argument.
-//            3. responds to "repeat?" with a 'y' or 'n'. but, does not prompt
-//               another attempt if not either of those.
-//
-//
-// Lab 7.3, Version 1
+// Lab 7.3, Version 2 (Professor Revised)
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
-// Proffesor: Jorgenson
+// Professor: Jorgenson
 // Date: 10/16/2021
 //
 // Purpose of Program:
@@ -53,58 +46,45 @@ class Tips
 {
 private:
     float taxRate;
-    float amountTaxed;
-    float billWithOutTax;
-    float tipRate;
-    float tip;
-
 
 public:
 
-    void set_tip(int givenTipRate)
+    float tipRate;
+
+    void set_tax(int givenTaxRate)
     {
-        if (givenTipRate > 0)
+        if (givenTaxRate > 0)
         {
-            tipRate = givenTipRate;
+            tipRate = givenTaxRate;
         }
-        else if (! isdigit(givenTipRate))
+        else if (! isdigit(givenTaxRate))
         {
-            tipRate = 0.085;
+            taxRate = 0.085;
         }
     };
-    void computeTip(float totalBillAmount, float taxRate)
+    double computeTip(float totalBillAmount, float taxRate)
     {
-        amountTaxed = totalBillAmount * (taxRate/100);
-        billWithOutTax = (totalBillAmount - amountTaxed);
-        tip = billWithOutTax * (tipRate / 100);
-        cout << "The tip should be $" <<setprecision(2) << fixed << tip << endl;
+        double billWithoutTax = totalBillAmount * (1 + taxRate/100);
+        double tip = billWithoutTax * (tipRate/100);
+        return tip;
     }
 };
 
 float getTax() {
-    float tax;                                   // unsigned can only handle positive numbers.
+    float tax;
     cout << "Tax % for this location: ";
     cin >> tax;
-    cin.get();
 
     while (tax < 0) {
-        if (tax > 0) {
-            cin >> tax;
-        } else if (tax < 0) {
             cout << "Tax % cannot be less than 0. Please re-enter tax %; " << endl;
             cout << "Tax % for this location: ";
             cin >> tax;
-            cin.get();
         }
-    }
     return tax;
 }
 
 int main()
 {
-    float x;
-    float taxPercentage;
-
     cout << "\nThis program will compute a restaurant tip based on\n"
         "the total bill amount and the % the patron wishes to\n"
         "tip the server.\n\n" << endl;
@@ -113,36 +93,23 @@ int main()
 
     float billTotal;
     float desiredTipRate;
-    char doIRunAgain;
-    char again;
-
-
-    cout << "**************** Tip Helper *****************\n";
-    cout << "Enter total bill amount: ";
-    cin >> billTotal;
-    cout << "Enter tip rate: ";
-    cin >> desiredTipRate;
+    char doIRunAgain = 'y';
 
     Tips obj2;
-    obj2.set_tip(desiredTipRate);
-    obj2.computeTip(billTotal, desiredTipRate);
+    obj2.set_tax(tax);
 
-    cout << "Compute another tip (y/n)?";
-    cin >> doIRunAgain;
+    while (doIRunAgain == 'y') {
+        cout << "**************** Tip Helper *****************\n";
+        cout << "Enter total bill amount: ";
+        cin >> billTotal;
+        cout << "Enter tip rate %: ";
+        cin >> desiredTipRate;
 
-    while (doIRunAgain == 'n' || doIRunAgain == 'y')
-    {
-        if (doIRunAgain == 'y') {
-            cout << "**************** Tip Helper *****************\n";
-            cout << "Enter total bill amount: ";
-            cin >> billTotal;
-            cout << "Enter tip rate: ";
-            cin >> desiredTipRate;
-
-            Tips obj2;
-            obj2.computeTip(billTotal, desiredTipRate);
-        } else if (doIRunAgain == 'n') {
-            cout << "Okay! Thank you for using Tip Helper. Have a pleasant day.";
-        }
+        cout << "Your tip is: " << obj2.computeTip(billTotal, desiredTipRate) << endl;
+        cout << "Do you want to do another? (type y or n) : ";
+        cin >> doIRunAgain;
     }
 
+    cout << "Okay! Thank you for using Tip Helper. Have a pleasant day.";
+
+}
