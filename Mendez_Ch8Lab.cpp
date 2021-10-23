@@ -16,35 +16,74 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+
 using namespace std;
 
 class PayRoll
 {
 private:
-    int hourlyRatePay;
-    int hoursWorked;
+    int hourlyRatePay, hoursWorked;
+
 public:
-    //members to:
-        //set hourly pay rate and number of hours worked
-        // and calculate gross pay.
+    void set_hourlyRate(int givenHourlyRate)
+    {
+        if (givenHourlyRate > 0)
+        {
+            hourlyRatePay = givenHourlyRate;
+        }
+        else
+        {
+            cout << "Error with file";
+        }
+    }
+
+    void set_hoursWorked(int givenHoursWorked)
+    {
+        if (givenHoursWorked > 0)
+        {
+            hoursWorked = givenHoursWorked;
+        }
+        else
+        {
+            cout << "Error with file";
+        }
+    }
+
+    float grossPay;
+
+    float calculateGrossPay(int hourlyRatePay, int hoursWorked)
+    {
+        float grossPay = (hoursWorked * hourlyRatePay);
+        return grossPay;
+    }
 };
 
 int main() {
-    std::cout << "!" << std::endl;
+    int i;
+    //seven PayRoll objects in an Array;
+    //PayRoll obj0 [7];
 
-    //seven PayRoll objects;
-    PayRoll payroll1;
-    PayRoll payroll2;
-    PayRoll payroll3;
-    PayRoll payroll4;
-    PayRoll payroll5;
-    PayRoll payroll6;
-    PayRoll payroll7;
+    //first loop
+      const int EMPLOYEES = 7;
+      const int HOURS = 1;
+      int hours[EMPLOYEES][HOURS];
+      int count = 0;
+      int employee, hrs;
 
-    //first loop reads the number of hours each employee worked
-    //also reads their hourly pay rate from a file and call
-    //class set functions to store this information in the appropriate
-    // objects
+      ifstream inputFile;
+
+      inputFile.open("payroll.txt");
+
+      if(!inputFile)
+          cout << "Error opening data file \n";
+      else
+      {
+          for (employee = 0; employee < EMPLOYEES; employee++)
+          {
+              for (hrs = 0; hrs < )
+          }
+      }
 
     //second loop; call class function for each object, to return
     //employee's gross pay (an individual's total earnings throughout
