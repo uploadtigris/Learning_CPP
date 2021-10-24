@@ -79,7 +79,8 @@ int main() {
         }
     }
 
-    showValues(obj0, SIZE);
+    int set1[] = { 1, 2, 3, 4, 5, 6, 7};
+    showValues(set1, SIZE);
 
 
 
@@ -87,6 +88,7 @@ int main() {
     //employee's gross pay (an individual's total earnings throughout
     //                      a given period before any deductions are made.)
 
+    
     string n = "number";
     cout << "Employee" << "   " << "Gross pay" << endl;
     cout << "========" << "   " << "=========" << endl;
