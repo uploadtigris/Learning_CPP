@@ -59,31 +59,29 @@ public:
     }
 };
 
+typedef int arrayType[];            //typedef
+
+void showValues(arrayType , int); //funciton prototype
+
 int main() {
     int i;
+    const int SIZE = 7;
     //seven PayRoll objects in an Array;
-    //PayRoll obj0 [7];
+    int obj0;
 
     //first loop
-      const int EMPLOYEES = 7;
-      const int HOURS = 1;
-      int hours[EMPLOYEES][HOURS];
-      int count = 0;
-      int employee, hrs;
+    ifstream item("payroll.txt");
+    if(item.is_open()) {
+        string obj0[7];
 
-      ifstream inputFile;
+        for (int i = 0; i < 7; i++) {
+            item >> obj0[i];
+        }
+    }
 
-      inputFile.open("payroll.txt");
+    showValues(obj0, SIZE);
 
-      if(!inputFile)
-          cout << "Error opening data file \n";
-      else
-      {
-          for (employee = 0; employee < EMPLOYEES; employee++)
-          {
-              for (hrs = 0; hrs < )
-          }
-      }
+
 
     //second loop; call class function for each object, to return
     //employee's gross pay (an individual's total earnings throughout
@@ -102,4 +100,11 @@ int main() {
 
 
     return 0;
+}
+
+void showValues(arrayType nums, int size)
+{
+    for (int index = 0; index < size; index++)
+        cout << nums[index] << " ";
+    cout << endl;
 }
