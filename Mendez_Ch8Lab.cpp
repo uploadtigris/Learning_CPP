@@ -15,7 +15,6 @@
 //###########################################################################
 
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <iomanip>
 
@@ -63,8 +62,7 @@ int main() {
     const int NUM_EMPLOYEES = 7;
     PayRoll employee[NUM_EMPLOYEES];
     int count;
-    int numberOfEmployees;
-
+    
     ifstream inputFile;
     inputFile.open("payroll.txt");
 
