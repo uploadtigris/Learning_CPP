@@ -60,7 +60,7 @@ public:
 
 int main() {
     const int NUM_EMPLOYEES = 7;
-    PayRoll employee[NUM_EMPLOYEES];
+    PayRoll employee[NUM_EMPLOYEES];                //declaring an array called 'employee' with 7 elements of type PayRoll.
     int count;
     
     ifstream inputFile;
@@ -75,9 +75,9 @@ int main() {
     count = 0;
     float hoursWorked, hourlyPay;
 
-    while (!inputFile.eof()) {
+    while (!inputFile.eof()) {                          // .eof() is "end-of-file"
         inputFile >> hoursWorked >> hourlyPay;
-        employee[count].set_hoursWorked(hoursWorked);
+        employee[count].set_hoursWorked(hoursWorked);   // array 'employee' is given the values in the file using the member functions of PayRoll.
         employee[count].set_hourlyRate(hourlyPay);
         count++;
     }
@@ -89,7 +89,7 @@ int main() {
     cout << "========" << "   " << "=========" << endl;
 
     for (count = 0; count < NUM_EMPLOYEES; count++)
-        cout << setw(4) << count + 1 << ": " << setw(7) << "$ " << employee[count].calculateGrossPay() << endl;
+        cout << setw(4) << count + 1 << ": " << setw(7) << "$ " << employee[count].calculateGrossPay() << endl;  //increment the subscripts and caculate gross pay.
 
 
     system("pause");
