@@ -1,8 +1,8 @@
 
 //###########################################################################
-// *** Assignment is in Progress ***
+// *** Assignment is Complete ***
 //
-// Lab 8, Version 1
+// Lab 8, Version 3
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
 // Proffesor: Jorgenson
@@ -17,16 +17,17 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
 class PayRoll
 {
 private:
-    int hourlyRatePay, hoursWorked;
+    float hourlyRatePay, hoursWorked;
 
 public:
-    void set_hourlyRate(int givenHourlyRate)
+    void set_hourlyRate(float givenHourlyRate)
     {
         if (givenHourlyRate > 0)
         {
@@ -34,11 +35,11 @@ public:
         }
         else
         {
-            cout << "Error with file";
+            hourlyRatePay = 0;
         }
     }
 
-    void set_hoursWorked(int givenHoursWorked)
+    void set_hoursWorked(float givenHoursWorked)
     {
         if (givenHoursWorked > 0)
         {
@@ -46,86 +47,53 @@ public:
         }
         else
         {
-            cout << "Error with file";
+            hoursWorked = 0;
         }
     }
 
-    float grossPay;
-
-    float calculateGrossPay(int hourlyRatePay, int hoursWorked)
+    float calculateGrossPay()
     {
         float grossPay = (hoursWorked * hourlyRatePay);
         return grossPay;
     }
 };
 
-//typedef int arrayType[];            //typedef
-//void showValues(arrayType , int); //funciton prototype
 
 int main() {
     const int NUM_EMPLOYEES = 7;
-    int hours[NUM_EMPLOYEES];
+    PayRoll employee[NUM_EMPLOYEES];
     int count;
     int numberOfEmployees;
 
     ifstream inputFile;
     inputFile.open("payroll.txt");
 
-    if (!inputFile)
-    {
+    if (!inputFile) {
         cout << "Error finding input file" << endl;
         system("pause");
         exit(-1);
     }
 
     count = 0;
-    while (!inputFile.eof())
-    {
-        inputFile >> hours[count];
+    float hoursWorked, hourlyPay;
+
+    while (!inputFile.eof()) {
+        inputFile >> hoursWorked >> hourlyPay;
+        employee[count].set_hoursWorked(hoursWorked);
+        employee[count].set_hourlyRate(hourlyPay);
         count++;
     }
-    numberOfEmployees = count;
+    inputFile.close();
 
     //display
-    cout << "The hours you entered are:";
-    for (count = 0; count < numberOfEmployees; count++)
-        cout << " " << hours[count];
 
-    cout << endl;
+    cout << "Employee" << "   " << "Gross pay" << endl;
+    cout << "========" << "   " << "=========" << endl;
+
+    for (count = 0; count < NUM_EMPLOYEES; count++)
+        cout << setw(4) << count + 1 << ": " << setw(7) << "$ " << employee[count].calculateGrossPay() << endl;
+
 
     system("pause");
     return 0;
-
-
-
-
-
-
-    //first loop
-
-    //second loop; call class function for each object, to return
-    //employee's gross pay (an individual's total earnings throughout
-    //                      a given period before any deductions are made.)
-
-
-    string n = "number";
-    cout << "Employee" << "   " << "Gross pay" << endl;
-    cout << "========" << "   " << "=========" << endl;
-    cout << "   1:   " << "   " << "$ " << n   << endl;
-    cout << "   2:   " << "   " << "$ " << n   << endl;
-    cout << "   3:   " << "   " << "$ " << n   << endl;
-    cout << "   4:   " << "   " << "$ " << n   << endl;
-    cout << "   5:   " << "   " << "$ " << n   << endl;
-    cout << "   6:   " << "   " << "$ " << n   << endl;
-    cout << "   7:   " << "   " << "$ " << n   << endl;
-
-
-    return 0;
 }
-
-/*void showValues(arrayType nums, int size)
-{
-    for (int index = 0; index < size; index++)
-        cout << nums[index] << " ";
-    cout << endl;
-}*/
