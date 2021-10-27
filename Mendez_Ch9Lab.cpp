@@ -1,25 +1,24 @@
 //###########################################################################
-// *** Assignment is not Complete ***
+// *** Assignment is Complete ***
 //
-// Lab 8, Version 3
+// Lab 9, Version 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
 // Proffesor: Jorgenson
-// Date: 10/21/2021
+// Date: 10/27/2021
 //
 // Purpose of Program:
-//
-//
+//              Take inputs from the user and sort them into alphabetical
+//              order.
 //
 // Sorting Visualised:
-//          Sort user input-ed artist and songs into an alphabetically ordered playlist.
-//
 //      https://www.youtube.com/watch?v=kPRA0W1kECg&t=33s
 //
 //###########################################################################
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 struct Playlist
@@ -50,22 +49,24 @@ int main() {
 //===============================================================================
 
     cout << "\n\n"; cout << "The Unsorted Playlist is: " << endl;
+    cout << left << setw(20) << "Artist" << "Title" << endl;
     cout << "========================================" << endl;
 
     for(count = 0; count < NUM_ENTRIES; count++)
     {
-        cout << entry[count].Artist << ", " << entry[count].title << endl;
+        cout << left << setw(20) <<  entry[count].Artist <<  entry[count].title << endl;
     }
     system("pause");
 
     bubbleSort(entry, NUM_ENTRIES);
 
     cout << "\n\n"; cout << "The Sorted Playlist is: " << endl;
+    cout << left << setw(20) << "Artist" << "Title" << endl;
     cout << "========================================" << endl;
 
     for(count = 0; count < NUM_ENTRIES; count++)
     {
-        cout << entry[count].Artist << ", " << entry[count].title << endl;
+        cout << left << setw(20) << entry[count].Artist <<  entry[count].title << endl;
     }
 
     return 0;
