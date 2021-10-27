@@ -19,9 +19,29 @@
 //###########################################################################
 
 #include <iostream>
+#include <string>
+using namespace std;
+
+struct Playlist
+{
+    string Artist;
+    string title;
+};
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    const int NUM_ENTRIES = 10;
+    Playlist entry[NUM_ENTRIES];
+    int count;
+
+    for (count = 0; count < 10; count++ )
+    {
+        cout << "Please enter artist # " << count+1 << ": " << endl;
+        getline(cin, entry[count].Artist );
+        cout << "Please enter song name # " << count+1 << ": " << endl;
+        getline(cin, entry[count].title);
+    }
+
+    
+
     return 0;
 }
-
