@@ -8,7 +8,7 @@
 // Date: 10/27/2021
 //
 // Purpose of Program:
-//              Take inputs from the user and sort them into alphabetical
+//              Take inputs from the user and sorts them into alphabetical
 //              order.
 //
 // Sorting Visualised:
