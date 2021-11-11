@@ -15,11 +15,32 @@
 
 #include <iostream>
 #include <algorithm> //for the sort function
+using namespace std;
+
+void printArray(int array[], int size)
+{
+    int i;
+    for(i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+};
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+
+    int foo [5] = { 16, 2, 77, 40, 12071 };
+    int arrSize = sizeof(foo) / sizeof(foo[0]);
+
+    cout << arrSize << endl;
+
+    printArray(foo, arrSize);
+
+
+
+   return 0;
 }
+
+
 
 // Pseudo Code:
 
@@ -27,7 +48,16 @@ int main() {
         // sort:
 
         // find median:
-            // if len(array) is divisible by 2 (even) then 
+            // find array length with the arrSize function.
+            // apply the modulus operator (%) to arrSize return value.
+                // if len(array) is divisible by 2 (is even) then:
+                    //find the average of the middle two values
+                        // (sizeOfArray / 2) = greaterMiddleValue; -> ( this is "ss2")
+                        // (greaterMiddleValue - 1) = lesserMiddleValue; -> (this is "ss1")
+                        // ((array[ss1] + array[ss2]) / 2) = arrayMedianValue;
+                // else if len(array) is not divisible by 2
+                    //
+
 
         // printArray:
             // for loop for every subscript 'i' in array
