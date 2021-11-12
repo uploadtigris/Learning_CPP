@@ -16,9 +16,73 @@
 //
 //###########################################################################
 #include <iostream>
+using namespace std;
+
+void printArray(int* array, int size)
+{
+    int e;
+    for(e = 0; e < size; e++)
+    {
+        cout << e;
+        cout << array[e] << " ";
+    }
+}
+
+int getData(int student)
+{
+    int numWatched = 0;
+    int a = 0;
+
+    cout << "enter num of movies watched for student number ";
+    cin >> numWatched;
+
+    do  // repeat until numWatched >= 0
+    { a = numWatched; }
+    while(numWatched >= 0 || numWatched != NAN);
+
+    return a;
+}
+
+void sort(int array, int size)
+{
+    return sort(array, array + size);
+}
+
+int average(int array, int size)
+{
+    int totalSum = 0;
+
+    for(int i = 0; i < size; i++)
+    {
+        totalSum += array[i];
+    }
+
+     int average = (totalSum / size);
+}
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    int size;
+
+    cout << "please enter the number of students: ";
+    cin >> size;
+    cout << size << endl;
+
+    int *array = new int[size];
+
+    /*for(int i = 0; i < arraySize; i++)
+    {
+        f[arraySize] = 0;
+    }*/
+
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = getData(i);
+    }
+
+    printArray(array, size);
+
+    // delete [] array;    -> use at some point
     return 0;
 }
 
@@ -44,3 +108,4 @@ int main() {
 
 //Average
     // Calculates the avg. of the movies watched by students and returns it to the main function.
+
