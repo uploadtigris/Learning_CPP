@@ -27,23 +27,88 @@ void printArray(int array[], int size)
     }
 }
 
-void findMedian(int array[], int size)
+void sort(int array[], int size)
 {
+    int sortedArray;
+    return sort(array, array + size);
+}
 
+int findMedian(int array[], int size)
+{
+    //even function
+    int arrayMedianValue;
+    int greaterMiddleValue;
+    int lesserMiddleValue;
+    int ss1;
+    int ss2;
+
+    //odd function
+    int z;
+
+    if ( size % 2 == 0) // is even
+    {
+        //find avg of middle two values
+        greaterMiddleValue = (size / 2);
+        lesserMiddleValue = (greaterMiddleValue - 1);
+        ss1 = lesserMiddleValue;
+        ss2 = greaterMiddleValue;
+        arrayMedianValue = ((array[ss1] + array[ss2]) / 2);
+
+    }
+    else if (size % 2 == 1) // is odd
+    {
+        //find median value
+        z = ((size - 1) / 2); //SubScript for middle value
+        int p = z;
+        arrayMedianValue = array[p];
+
+    }
+    return arrayMedianValue;
 }
 
 int main() {
 
-    int foo [5] = { 16, 2, 77, 40, 12071 };
-    int arrSize = sizeof(foo) / sizeof(foo[0]);
+    int evenArray[] = { 17, 32, 45, 68, 99, 101, 67, 89, 22, 27 };
+    int oddArray[] = { 17, 32, 45, 68, 99, 101, 67, 89, 22};
 
-    cout << arrSize << endl;
+    int evenArrSize = sizeof(evenArray) / sizeof(evenArray[0]);
+    int oddArrSize = sizeof(oddArray) / sizeof(oddArray[0]);
 
-    printArray(foo, arrSize);
+    //size
+    cout << evenArrSize << endl;
+    cout << oddArrSize << endl << endl;
+
+    //unsorted
+    printArray(evenArray, evenArrSize);
+    cout << endl;
+    printArray(oddArray, oddArrSize);
+    cout << endl;
+
+    //sort
+    //sort(evenArray, evenArray + evenArrSize);
+    //sort(oddArray, oddArray + oddArrSize);
+
+    sort(evenArray, evenArrSize);
+    sort(oddArray, oddArrSize);
+
+    //sorted
+    printArray(evenArray, evenArrSize);
+    cout << endl;
+    printArray(oddArray, oddArrSize);
+    cout << endl << endl;
+
+    //find median values
+
+    //void findMedian(int array[], int size)
+    cout << findMedian(evenArray, evenArrSize);
+    cout << endl;
+    cout << findMedian(oddArray, oddArrSize);
+    cout << endl;
 
 
 
-   return 0;
+
+    return 0;
 }
 
 
