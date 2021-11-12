@@ -1,15 +1,15 @@
 //###########################################################################
-// *** Assignment is not yet Complete ***
+// *** Assignment is Complete ***
 //
 // Lab 10 (A), Version 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
 // Proffesor: Jorgenson
-// Date: 11/1/2021
+// Date: 11/11/2021
 //
 // Purpose of Program:
-//
-//
+//          To sort two list of numbers as arrays (one even, one odd) and
+//          then return the median value.
 //
 //###########################################################################
 
@@ -18,7 +18,7 @@
 using namespace std;
 
 //pass arrays as pointers
-void printArray(int array[], int size)
+void printArray(int *array, int size)
 {
     int i;
     for(i = 0; i < size; i++)
@@ -27,16 +27,15 @@ void printArray(int array[], int size)
     }
 }
 
-void sort(int array[], int size)
+void sort(int *array, int size)
 {
-    int sortedArray;
     return sort(array, array + size);
 }
 
-int findMedian(int array[], int size)
+int findMedian(const int *array, int size)
 {
     //even function
-    int arrayMedianValue;
+    int arrayMedianValue = 0;
     int greaterMiddleValue;
     int lesserMiddleValue;
     int ss1;
@@ -74,39 +73,16 @@ int main() {
     int evenArrSize = sizeof(evenArray) / sizeof(evenArray[0]);
     int oddArrSize = sizeof(oddArray) / sizeof(oddArray[0]);
 
-    //size
-    cout << evenArrSize << endl;
-    cout << oddArrSize << endl << endl;
-
-    //unsorted
-    printArray(evenArray, evenArrSize);
-    cout << endl;
-    printArray(oddArray, oddArrSize);
-    cout << endl;
-
-    //sort
-    //sort(evenArray, evenArray + evenArrSize);
-    //sort(oddArray, oddArray + oddArrSize);
-
     sort(evenArray, evenArrSize);
     sort(oddArray, oddArrSize);
 
-    //sorted
-    printArray(evenArray, evenArrSize);
-    cout << endl;
-    printArray(oddArray, oddArrSize);
-    cout << endl << endl;
+    cout << "Median of the odd array:" << "\n\n"
+    << "("; printArray(oddArray, oddArrSize); cout << ")" << "\n\n";
+    cout << "[is " << findMedian(oddArray, oddArrSize) << "]" << "\n\n";
 
-    //find median values
-
-    //void findMedian(int array[], int size)
-    cout << findMedian(evenArray, evenArrSize);
-    cout << endl;
-    cout << findMedian(oddArray, oddArrSize);
-    cout << endl;
-
-
-
+    cout << "Median of the even array:" << "\n\n"
+    << "("; printArray(evenArray, evenArrSize); cout << ")" << "\n\n";
+    cout << "[is " << findMedian(evenArray, evenArrSize) << "]" << "\n\n";
 
     return 0;
 }
@@ -114,9 +90,6 @@ int main() {
 
 
 // Pseudo Code:
-
-// Operations Processes:
-    //
 
 // Modular Functions:
         // sort:
@@ -139,6 +112,6 @@ int main() {
 
         // printArray:
             // for loop for every subscript 'i' in array
-            // print contents of each
-            // when i == i - 1, then stop the loop.
+            // print contents of each array element i.
+            // when i >= size of array, then stop the loop.
 
