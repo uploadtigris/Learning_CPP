@@ -1,5 +1,5 @@
 //###########################################################################
-// *** Assignment is not Complete ***
+// *** Assignment is Complete ***
 //
 // Lab 10 (B), Version 1
 // Name (Developer): Tigris Mendez
@@ -39,20 +39,15 @@ void getData(float* array, int size)
         float *ptr = &array[i];
 
         cout << "enter num of movies watched for student number " << (i+1) << endl;
-        cin >> numMoviesWatched;
+        //cin >> numMoviesWatched;
 
-        if (numMoviesWatched > 0 || isdigit(numMoviesWatched))
+        while(!(cin >> numMoviesWatched))
         {
-            a = numMoviesWatched;
+            cout << "Please enter a positive integer";
+            cin.clear();
+            cin.ignore(123, '\n');
         }
-        else
-        {
-            while (numMoviesWatched <= 0)
-            {
-                cout << "Please enter a positive integer";
-                cin >> numMoviesWatched;
-            }
-        }
+
         a = numMoviesWatched;
         *ptr = a;
     }
@@ -108,7 +103,6 @@ int main() {
     sort(iptr, size);
     cout << "--------" << endl;
     cout << "Average  " << average(iptr, size);
-
 
 
     delete [] iptr;    //-> use at some point
