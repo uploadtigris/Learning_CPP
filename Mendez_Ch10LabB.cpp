@@ -8,7 +8,7 @@
 // Date: 11/12/2021
 //
 // Purpose of Program:
-//      To find # of movies college students see per month.
+//      To find avg # of movies college students see per month.
 //      Asks the user how many student surveyed and dynamically allocates
 //      an array of that size.
 //      Then, the user will enter the number of movies that each student has seen.
@@ -16,73 +16,103 @@
 //
 //###########################################################################
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-void printArray(int* array, int size)
+void printArray(float* array, int size)
 {
     int e;
     for(e = 0; e < size; e++)
     {
-        cout << e;
-        cout << array[e] << " ";
+        cout << "Student " << (e+1) << ": " << array[e] << endl;
     }
 }
 
-int getData(int student)
+void getData(float* array, int size)
 {
-    int numWatched = 0;
-    int a = 0;
+    float numMoviesWatched = 0;
+    float a = 0;
 
-    cout << "enter num of movies watched for student number ";
-    cin >> numWatched;
-
-    do  // repeat until numWatched >= 0
-    { a = numWatched; }
-    while(numWatched >= 0 || numWatched != NAN);
-
-    return a;
-}
-
-void sort(int array, int size)
-{
-    return sort(array, array + size);
-}
-
-int average(int array, int size)
-{
-    int totalSum = 0;
 
     for(int i = 0; i < size; i++)
     {
-        totalSum += array[i];
+        float *ptr = &array[i];
+
+        cout << "enter num of movies watched for student number " << (i+1) << endl;
+        cin >> numMoviesWatched;
+
+        if (numMoviesWatched > 0 || isdigit(numMoviesWatched))
+        {
+            a = numMoviesWatched;
+        }
+        else
+        {
+            while (numMoviesWatched <= 0)
+            {
+                cout << "Please enter a positive integer";
+                cin >> numMoviesWatched;
+            }
+        }
+        a = numMoviesWatched;
+        *ptr = a;
+    }
+}
+
+void sort(float* arr, int size)
+{
+    return sort(arr,arr + size);
+}
+
+float average(float *arr, float size)
+{
+    float totalSum = 0;
+
+    for(int j = 0; j < size; j++)
+    {
+        float *ptr = &arr[j];
+        totalSum += *ptr;
     }
 
-     int average = (totalSum / size);
+    float average = (totalSum / size);
+
+    return average;
 }
 
 int main() {
 
-    int size;
+    int size = 0;
+    float *iptr;
 
-    cout << "please enter the number of students: ";
+    cout << "please enter the number of students:";
     cin >> size;
-    cout << size << endl;
 
-    int *array = new int[size];
-
-    /*for(int i = 0; i < arraySize; i++)
+    do
     {
-        f[arraySize] = 0;
-    }*/
+        cout << "There are " << size << " students" << endl;
+        break;
+    }
+    while (size >= 0 || isdigit(size));
 
-    for(int i = 0; i < size; i++)
+    iptr = new float[size];   //create array
+
+    for(int count = 0; count < size; count++)    //populate the new array with variables
     {
-        array[i] = getData(i);
+        iptr[count] = 1;
     }
 
-    printArray(array, size);
+    getData(iptr, size);
 
-    // delete [] array;    -> use at some point
+    cout << "Number of Movies Watched" << endl;
+    cout << "------------------------" << endl;
+    printArray(iptr, size);
+    sort(iptr, size);
+    cout << "--------" << endl;
+    cout << "Average  " << average(iptr, size);
+
+
+
+    delete [] iptr;    //-> use at some point
+
     return 0;
 }
 
