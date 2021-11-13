@@ -33,17 +33,21 @@ void getData(float* array, int size)
     float numMoviesWatched = 0;
     float a = 0;
 
+
     for(int i = 0; i < size; i++)
     {
+        float *ptr = &array[i];
+
         cout << "enter num of movies watched for student number " << (i+1) << endl;
         cin >> numMoviesWatched;
 
-        do { a = numMoviesWatched;
+        do {
+            a = numMoviesWatched;
              break;
            }
         while(numMoviesWatched >= 0 || isdigit(numMoviesWatched));
 
-        array[i] = a;
+        *ptr = a;
     }
 }
 
@@ -58,8 +62,10 @@ float average(float *arr, float size)
 
     for(int j = 0; j < size; j++)
     {
-        totalSum += arr[j];
+        float *ptr = &arr[j];
+        totalSum += *ptr;
     }
+    cout << totalSum << endl;
 
     float average = (totalSum / size);
 
@@ -73,7 +79,13 @@ int main() {
 
     cout << "please enter the number of students:";
     cin >> size;
-    cout << "There are " << size << " students" << endl;
+
+    do
+    {
+        cout << "There are " << size << " students" << endl;
+        break;
+    }
+    while (size >= 0 || isdigit(size));
 
     iptr = new float[size];   //create array
 
