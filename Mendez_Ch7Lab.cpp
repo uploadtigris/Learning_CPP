@@ -1,115 +1,123 @@
 //###########################################################################
-// *** Assignment is Complete ***
+// *** Assignment is not Complete ***
 //
-// Lab 7.3, Version 2 (Professor Revised)
+// Lab 10 (B), Version 1
 // Name (Developer): Tigris Mendez
 // Class: COSC~1337
-// Professor: Jorgenson
-// Date: 10/16/2021
+// Proffesor: Jorgenson
+// Date: 11/12/2021
 //
 // Purpose of Program:
-//      After retrieving the total price of a bill, this program will compute
-//      the necessary tip at a percentage also given by the user.
-//###########################################################################
-
-
-//some sudocode!!
+//      To find avg # of movies college students see per month.
+//      Asks the user how many student surveyed and dynamically allocates
+//      an array of that size.
+//      Then, the user will enter the number of movies that each student has seen.
+//      Then, the program will set the scores and calculate the average.
 //
-// taxRate (private) set by a ONE parameter constructor
-            // when Tips object created, passes value to taxRate
-            // if no argument passed, the default is 0.085
-                    // use a default constructor for this value
-
-// Tips class
-    //has taxRate as a private member
-    //only One Public function, computeTip
-        //computeTip accepts TWO arguments.
-            //(total bill amount , and taxRate's stored value.)
-            // subtracts tax from meal cost with tax
-            // calculates gratuity from meal w/o tax included
-
-
-// main
-    // create an instance of Tips
-    // utilize the Tips object in a for loop
-        //at end of loop ask "another tip (y/n)?"
-
+//###########################################################################
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <iomanip>
+#include <algorithm>
 using namespace std;
-//making class variables public is not the best practice
-//An object is how you access stuff *inside the class
 
-class Tips
+void printArray(float* array, int size)
 {
-private:
-    float taxRate;
-
-public:
-
-    float tipRate;
-
-    void set_tax(int givenTaxRate)
+    int e;
+    for(e = 0; e < size; e++)
     {
-        if (givenTaxRate > 0)
-        {
-            tipRate = givenTaxRate;
-        }
-        else if (! isdigit(givenTaxRate))
-        {
-            taxRate = 0.085;
-        }
-    };
-    double computeTip(float totalBillAmount, float taxRate)
-    {
-        double billWithoutTax = totalBillAmount * (1 + taxRate/100);
-        double tip = billWithoutTax * (tipRate/100);
-        return tip;
+        cout << "Student " << (e+1) << ": " << array[e] << endl;
     }
-};
-
-float getTax() {
-    float tax;
-    cout << "Tax % for this location: ";
-    cin >> tax;
-
-    while (tax < 0) {
-            cout << "Tax % cannot be less than 0. Please re-enter tax %; " << endl;
-            cout << "Tax % for this location: ";
-            cin >> tax;
-        }
-    return tax;
 }
 
-int main()
+void getData(float* array, int size)
 {
-    cout << "\nThis program will compute a restaurant tip based on\n"
-        "the total bill amount and the % the patron wishes to\n"
-        "tip the server.\n\n" << endl;
+    float numMoviesWatched = 0;
+    float a = 0;
 
-    float tax{getTax()};
+    for(int i = 0; i < size; i++)
+    {
+        cout << "enter num of movies watched for student number " << (i+1) << endl;
+        cin >> numMoviesWatched;
 
-    float billTotal;
-    float desiredTipRate;
-    char doIRunAgain = 'y';
+        do { a = numMoviesWatched;
+             break;
+           }
+        while(numMoviesWatched >= 0 || isdigit(numMoviesWatched));
 
-    Tips obj2;
-    obj2.set_tax(tax);
+        array[i] = a;
+    }
+}
 
-    while (doIRunAgain == 'y') {
-        cout << "**************** Tip Helper *****************\n";
-        cout << "Enter total bill amount: ";
-        cin >> billTotal;
-        cout << "Enter tip rate %: ";
-        cin >> desiredTipRate;
+void sort(float* arr, int size)
+{
+    return sort(arr,arr + size);
+}
 
-        cout << "Your tip is: " << obj2.computeTip(billTotal, desiredTipRate) << endl;
-        cout << "Do you want to do another? (type y or n) : ";
-        cin >> doIRunAgain;
+float average(float *arr, float size)
+{
+    float totalSum = 0;
+
+    for(int j = 0; j < size; j++)
+    {
+        totalSum += arr[j];
     }
 
-    cout << "Okay! Thank you for using Tip Helper. Have a pleasant day.";
+    float average = (totalSum / size);
 
+    return average;
 }
+
+int main() {
+
+    int size = 0;
+    float *iptr;
+
+    cout << "please enter the number of students:";
+    cin >> size;
+    cout << "There are " << size << " students" << endl;
+
+    iptr = new float[size];   //create array
+
+    for(int count = 0; count < size; count++)    //populate the new array with variables
+    {
+        iptr[count] = 1;
+    }
+
+    getData(iptr, size);
+
+    cout << "Number of Movies Watched" << endl;
+    cout << "------------------------" << endl;
+    printArray(iptr, size);
+    sort(iptr, size);
+    cout << "--------" << endl;
+    cout << "Average  " << average(iptr, size);
+
+
+
+    delete [] iptr;    //-> use at some point
+
+    return 0;
+}
+
+//Pseudo Code:
+
+//main
+    // cout << "number of students:"
+    //cin >> array size;
+    //create array the size of 'array size' input;
+   //print average
+    // destruct the array
+
+//Get the data
+    // obtain the number of movies watched by each college student
+    // input validation: number of movies must be positive
+
+//Sort the data
+    //sort given array in ascending order
+    //use the STL sort function
+
+//Display
+    //print the sorted array list of number of movies watched to screen.
+
+//Average
+    // Calculates the avg. of the movies watched by students and returns it to the main function.
+
