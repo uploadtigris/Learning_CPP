@@ -73,6 +73,9 @@ float average(float *arr, float size)
     return average;
 }
 
+//modify by adding a class and a struct
+//utilize the arrow operator "->"
+
 int main() {
 
     int size = 0;
