@@ -1,4 +1,18 @@
-
+//###########################################################################
+// *** Assignment is Not Complete ***
+//
+// Lab 13, Part 1 + 2
+// Name (Developer): Tigris Mendez
+// Class: COSC~1337
+// Profesor: Jorgenson
+// Date: 12/03/2021
+//
+// Purpose of Program:
+//          This program is meant to encrypt a .txt documents contents by
+//          by simply adding or subtracting from the ASCII values of each
+//          character.
+//
+//###########################################################################
 
 #include <iostream>
 #include <fstream>
