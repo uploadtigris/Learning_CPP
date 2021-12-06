@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
 using namespace std;
 
 //testing prototype;
@@ -44,7 +45,7 @@ int main() {
 
 
     int ans;
-    string in;
+    //string in;
     cout << "Press 1 to Encrypt file.\n Press 2 to Decrypt file." << endl;
     cin >> ans;
 
@@ -52,44 +53,47 @@ int main() {
     {
         cout << "you have chose to Encrypt: " << endl;
         char c;
+        char z[50];
         fstream buckyFile;
         ofstream fout;
 
         buckyFile.open("tuna.txt", ios::out);
+        //in = "encrypt_output";
+        fout.open("tuna2.txt", ios::out);
 
-        testBits(buckyFile);
-        /*
+        cout << "Please enter the text to be encrypted: " << endl;
+        cin >> z;
 
-        in = "encrypt_output";
-        fout.open("tuna2.txt", ios::binary);
+        char*
 
-        testBits(buckyFile);
 
-        while(!buckyFile.eof())
+        /*while(!buckyFile.eof())
         {
             buckyFile >> noskipws >> c;
             int temp = (c + 10);
             fout << (char)temp;
-        }
+        }*/
+
         buckyFile.close();
         fout.close();
-        */
+
+        testBits(buckyFile);
     }
     else if (ans == 2)
     {
         cout << "you have chose to Decrypt: " << endl;
         char c;
+        char z[50];
         fstream buckyFile;
         ofstream fout;
 
         buckyFile.open("tuna2.txt", ios::out);
+        //in = "decrypt_output";
+        fout.open("tuna.txt", ios::out);
 
-        testBits(buckyFile);
-        /*
-        in = "decrypt_output";
-        fout.open("tuna.txt", ios::binary);
-
-        testBits(buckyFile);
+        cout << "Please enter the text to be decrypted: " << endl;
+        cin >> z;
+        buckyFile << z;
 
         while(!buckyFile.eof())
         {
@@ -98,7 +102,9 @@ int main() {
             fout << (char)temp;
         }
         buckyFile.close();
-        fout.close()*/
+        fout.close();
+
+        testBits(buckyFile);
     }
     return 0;
 }
@@ -118,4 +124,5 @@ void testBits(fstream& buckyFile)
     // add '10' to the ASCII values for each character in the char array.
     // create a second file for the decrypted.
     // write the buffer into a new file.
+
 
