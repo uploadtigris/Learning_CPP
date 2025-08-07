@@ -1,4 +1,4 @@
-G# 📚 Learning C++
+# 📚 Learning C++
 
 Welcome to my C++ learning journey! This repository is dedicated to my progress in mastering the C++ programming language. My primary motivations for taking on this powerful language are rooted in a few key areas that I'm passionate about.
 
